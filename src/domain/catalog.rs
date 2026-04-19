@@ -1,4 +1,4 @@
-use uuid::Uuid;
+
 use serde::{Serialize,Deserialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -16,20 +16,20 @@ pub struct ProductAttributes {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProductCreated {
-    pub product_id: Uuid,
+    pub product_id: String,
     pub sku: String,
     pub name: String,
-    pub category_id: Uuid,
+    pub category_id: String,
     pub price: Money,
     pub attributes: Option<ProductAttributes>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProductUpdated {
-    pub product_id: Uuid,
+    pub product_id: String,
 
     pub name: Option<String>,
-    pub category_id: Option<Uuid>,
+    pub category_id: Option<String>,
     pub price: Option<Money>,
     pub attributes: Option<ProductAttributes>,
 
