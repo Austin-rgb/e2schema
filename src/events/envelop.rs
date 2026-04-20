@@ -5,7 +5,6 @@ use chrono::{DateTime, Utc};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Event<T> {
     pub event_id: Uuid,
-    pub event_type: String,
     pub event_version: String,
     pub occurred_at: DateTime<Utc>,
 
@@ -22,13 +21,11 @@ pub struct Event<T> {
 
 impl<T> Event<T> {
     pub fn new(
-        event_type: impl Into<String>,
         producer: impl Into<String>,
         data: T,
     ) -> Self {
         Self {
             event_id: Uuid::new_v4(),
-            event_type: event_type.into(),
             event_version: "v1".to_string(),
             occurred_at: Utc::now(),
 
