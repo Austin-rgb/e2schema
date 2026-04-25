@@ -8,6 +8,7 @@ pub struct UserUpdated {
     pub country: Option<String>,
 }
 
+use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
@@ -17,4 +18,12 @@ pub struct UserCreated {
     pub email: String,
     pub phone: Option<String>,
     pub country: Option<String>,
+}
+
+impl Publishable for UserCreated {
+    const SUBJECT: &'static str = "user.user.created";
+}
+
+impl Publishable for UserUpdated {
+    const SUBJECT: &'static str = "user.user.updated";
 }

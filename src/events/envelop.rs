@@ -3,40 +3,30 @@ use uuid::Uuid;
 use chrono::{DateTime, Utc};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Event<T> {
+pub struct EventMetaData {
     pub event_id: Uuid,
     pub event_version: String,
     pub occurred_at: DateTime<Utc>,
-
     pub producer: String,
-
     pub correlation_id: Option<Uuid>,
     pub trace_id: Option<Uuid>,
-
     pub user_id: Option<Uuid>,
     pub session_id: Option<Uuid>,
-
-    pub data: T,
 }
 
-impl<T> Event<T> {
+impl EventMetaData {
     pub fn new(
         producer: impl Into<String>,
-        data: T,
     ) -> Self {
         Self {
             event_id: Uuid::new_v4(),
             event_version: "v1".to_string(),
             occurred_at: Utc::now(),
-
             producer: producer.into(),
-
             correlation_id: None,
             trace_id: None,
             user_id: None,
             session_id: None,
-
-            data,
         }
     }
 
@@ -60,5 +50,4 @@ impl<T> Event<T> {
         self
     }
 }
-
 

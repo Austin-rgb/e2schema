@@ -2,4 +2,4 @@
 mod events;
 mod domain;
 pub use domain::*;
-pub use events::envelop::Event;
+pub use events::envelop::EventMetaData;
