@@ -59,3 +59,13 @@ pub struct OrderShipped {
 impl Publishable for OrderShipped {
     const SUBJECT: &'static str = "orders.order.shipped";
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct OrderDelivered {
+    pub order_id: Uuid,
+    pub _emd: EventMetaData,
+}
+
+impl Publishable for OrderDelivered {
+    const SUBJECT: &'static str = "orders.order.delivered";
+}
