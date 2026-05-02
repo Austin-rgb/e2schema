@@ -273,8 +273,6 @@ dependencies = [
  "chrono",
  "event-stream",
  "serde",
- "serde_json",
- "thiserror",
  "uuid",
 ]
 
