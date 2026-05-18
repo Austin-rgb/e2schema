@@ -1,5 +1,5 @@
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
-use serde::{Serialize,Deserialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct NotificationSent {
@@ -15,4 +15,3 @@ pub enum NotificationChannel {
     Sms,
     Push,
 }
-

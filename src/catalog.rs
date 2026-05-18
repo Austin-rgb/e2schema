@@ -1,6 +1,6 @@
+use event_stream::EventMetaData;
 use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
-use crate::EventMetaData;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Money {
@@ -18,7 +18,7 @@ pub struct ProductAttributes {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProductCreated {
     pub product_id: String,
-    pub _emd: EventMetaData,
+
     pub sku: String,
     pub name: String,
     pub category_id: String,
@@ -29,7 +29,7 @@ pub struct ProductCreated {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProductUpdated {
     pub product_id: String,
-    pub _emd: EventMetaData,
+
     pub name: Option<String>,
     pub category_id: Option<String>,
     pub price: Option<Money>,

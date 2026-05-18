@@ -1,5 +1,5 @@
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
-use serde::{Serialize,Deserialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CartCreated {
@@ -11,7 +11,8 @@ pub struct CartCreated {
 pub struct CartItemRemoved {
     pub cart_id: Uuid,
     pub product_id: Uuid,
-}#[derive(Debug, Clone, Serialize, Deserialize)]
+}
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CartItemAdded {
     pub cart_id: Uuid,
     pub product_id: Uuid,

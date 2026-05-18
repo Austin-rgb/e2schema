@@ -2,7 +2,7 @@ use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use crate::EventMetaData;
+use event_stream::EventMetaData;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderItem {
@@ -14,7 +14,7 @@ pub struct OrderItem {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderPlaced {
     pub order_id: Uuid,
-    pub _emd: EventMetaData,
+
     pub user_id: Uuid,
     pub items: Vec<OrderItem>,
     pub total_amount: i64,
@@ -28,7 +28,7 @@ impl Publishable for OrderPlaced {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderCancelled {
     pub order_id: Uuid,
-    pub _emd: EventMetaData,
+
     pub reason: Option<String>,
 }
 
@@ -39,7 +39,7 @@ impl Publishable for OrderCancelled {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderConfirmed {
     pub order_id: Uuid,
-    pub _emd: EventMetaData,
+
     pub payment_id: Uuid,
 }
 
@@ -50,7 +50,7 @@ impl Publishable for OrderConfirmed {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderShipped {
     pub order_id: Uuid,
-    pub _emd: EventMetaData,
+
     pub shipment_id: Uuid,
     pub carrier: String,
     pub tracking_number: String,
@@ -63,7 +63,6 @@ impl Publishable for OrderShipped {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderDelivered {
     pub order_id: Uuid,
-    pub _emd: EventMetaData,
 }
 
 impl Publishable for OrderDelivered {

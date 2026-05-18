@@ -1,5 +1,9 @@
-
-mod events;
-mod domain;
-pub use domain::*;
-pub use events::envelop::EventMetaData;
+pub mod analytics;
+pub mod cart;
+pub mod catalog;
+pub mod inventory;
+pub mod notification;
+pub mod order;
+pub mod payment;
+pub mod shipping;
+pub mod user;
