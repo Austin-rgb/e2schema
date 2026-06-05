@@ -1,4 +1,4 @@
-use event_stream::EventMetaData;
+ 
 use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;

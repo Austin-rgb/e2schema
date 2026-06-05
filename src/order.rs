@@ -2,7 +2,7 @@ use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use event_stream::EventMetaData;
+ 
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OrderItem {

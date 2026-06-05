@@ -8,7 +8,7 @@ pub struct UserUpdated {
 use event_stream::Publishable;
 use serde::{Deserialize, Serialize};
 
-use event_stream::EventMetaData;
+ 
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UserCreated {
